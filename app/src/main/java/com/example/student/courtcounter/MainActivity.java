@@ -1,5 +1,7 @@
 package com.example.student.courtcounter;
 
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 
 import android.support.v7.app.AppCompatActivity;
@@ -7,10 +9,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class
+MainActivity extends AppCompatActivity {
 
     private int mScoreTeamJG = 0;
     private int mScoreTeamSwag = 0;
+
+    AlertDialog gameOverAlert ;
 
 
     @Override
@@ -56,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
         int step = 1;
         mScoreTeamSwag += step;
         displayForTeamSwag(mScoreTeamSwag);
+
     }
 
     /**
@@ -87,15 +93,36 @@ public class MainActivity extends AppCompatActivity {
      */
 
 
-
     /**
      * Resets all scores for Team A and Team B
      */
     public void resetScore(View view) {
+
+
+        gameOverAlert= new AlertDialog.Builder(MainActivity.this).create();
+
+        gameOverAlert.setTitle("The Game is almost over");
+
+        gameOverAlert.setMessage("Game Over");
+
+
         mScoreTeamJG = 0;
         mScoreTeamSwag = 0;
-
         displayForTeamJG(mScoreTeamJG);
         displayForTeamSwag(mScoreTeamSwag);
+
+        if (mScoreTeamJG > mScoreTeamSwag) {
+            gameOverAlert.setMessage("Team JG wins");
+        }
+
+        gameOverAlert.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+
+        gameOverAlert.show();
+
     }
 }
