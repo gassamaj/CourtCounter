@@ -23,7 +23,12 @@
 
 
 
-            <TextView
+
+            <EditText
+                android:id="@+id/txtVw_Editteam"
+                android:hint="Team Name"
+                android:imeOptions="actionDone"
+                android:inputType="text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -31,7 +36,7 @@
                 android:background="#006400"
                 android:textSize="35sp"
                 android:fontFamily="sans-serif-medium"
-                android:text="TeamJG" />
+                />
 
 
 
@@ -68,6 +73,13 @@
                 android:text="+1 Points"
                 android:onClick="addOneForTeamJG"/>
 
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="-1 Points"
+                android:onClick="subtractOneForTeamJG"/>
+
 
 
 
@@ -82,14 +94,19 @@
 
 
 
-        <TextView
+        <EditText
+            android:id="@+id/txtVw_Editteam2"
+            android:hint="Team Name"
+            android:imeOptions="actionDone"
+            android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:background = "#ffffff"
             android:textColor="#616161"
-            android:textSize="30sp"
+            android:textSize="35sp"
             android:fontFamily="sans-serif-medium"
-            android:text="TeamSwag" />
+             />
 
         <TextView
             android:id="@+id/txtVw_scoreTeamSwag"
@@ -120,6 +137,13 @@
             android:onClick="addOneForTeamSwag"
             android:text="+1 Points" />
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="-1 Points"
+            android:onClick="subtractOneForTeamSwag"/>
+
 
     </LinearLayout>
 
@@ -134,7 +158,11 @@
         android:onClick="resetScore"
         android:text="Gameover" />
 
+
+
 </LinearLayout>
+
+
 
 
 
